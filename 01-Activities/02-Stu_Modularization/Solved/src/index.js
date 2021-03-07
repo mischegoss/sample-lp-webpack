@@ -1,3 +1,4 @@
+// Import individual JavaScript files
 import './box-one';
 import './box-two';
 import './box-three';

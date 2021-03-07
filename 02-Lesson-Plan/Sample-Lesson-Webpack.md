@@ -97,7 +97,7 @@ By the end of class, students will be able to:
 
   * 🔑 We also have a new file in our `src`, an `index.js`. This JavaScript file will serve as Webpack's entry point. 
 
-  * 🔑 When we run Webpack, it will check everything that has been imported or required in this entry point file and then bundle it all together into a new file called `main.js`. 
+  * 🔑 When we run Webpack, it will check everything that has been imported or required in the `index.js` entry point and then bundle it all together into a new file called `main.js`. 
 
     ```js
     import './box-one';
@@ -179,7 +179,7 @@ By the end of class, students will be able to:
   [Webpack Docs on Creating a Bundle](https://webpack.js.org/guides/getting-started/#creating-a-bundle)
 
   [Webpack Docs on Modules](https://webpack.js.org/guides/getting-started/#modules)
-  
+
   [Webpack Docs on Configuration](https://webpack.js.org/configuration/)
   
   ---
