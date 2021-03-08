@@ -58,11 +58,11 @@ By the end of class, students will be able to:
 
   * 🔑 Instead of using one large JavaScript file, we can use different JavaScript files to handle the functionality for each box. 
 
-  * 🔑 This modularization allows us to break down our JavaScript into small, more manageable chunks of code that perform a specific role.
+  * 🔑 This modularization allows us to break down our JavaScript into small, more manageable chunks of code that perform a specific function.
 
 * Open `01-Ins_Modularization-Example/index.html` in your IDE and explain the following: 
 
-  * 🔑 One way to handle multiple JavaScript files is to link individual files to our HTML. This works but it is difficult to maintain as our projects grow in scope. 
+  * 🔑 One way to handle multiple JavaScript files is to link the individual files to our HTML. This works but it is difficult to maintain as our projects grow in scope and the number of files increase. 
 
     ```html
     <script src="assets/js/box-one.js"></script>
@@ -75,7 +75,7 @@ By the end of class, students will be able to:
 
   * 🔑 To write cleaner and faster code, we can use Webpack to bundle our JavaScript modules.   
 
-  * 🔑 To use Webpack, we first need to initialize npm and create a `package.json` file. To do that, we use `npm init -y`.
+  * 🔑 To use Webpack, we first need to initialize npm and create a `package.json` file. To do so, we use `npm init -y`.
 
     ```sh
     npm init -y
@@ -97,7 +97,9 @@ By the end of class, students will be able to:
 
   * 🔑 We also have a new file in our `src`, an `index.js`. This JavaScript file will serve as Webpack's entry point. 
 
-  * 🔑 When we run Webpack, it will check everything that has been imported or required in the `index.js` entry point and then bundle it all together into a new file called `main.js`. In our `index.js` we have imported the files holding the code for each box. 
+  * 🔑 When we run Webpack, it will check everything that has been imported or required in the `index.js` entry point and then bundle it all together into a new file. 
+  
+  * In our `index.js` we have imported the files holding the code for each box so they are included in the bundle. 
 
     ```js
     import './box-one';
@@ -110,9 +112,9 @@ By the end of class, students will be able to:
 
 * Open `01-Ins_Webpack-Example/dist` in your IDE and explain the following: 
 
-  * 🔑 The `dist` directory contains all the files Webpack outputs. For mow, that is the `main.js` file. 
+  * 🔑 The `dist` directory contains all the files that Webpack outputs. For now, that is the just the `main.js` file. 
   
-  * We also  put our `index.html` and `styles.css` file manually in this directory. Later, we will use Webpack to output all these files as well.
+  * We also  put our `index.html` and `styles.css` file manually in this directory. Later, we will use Webpack to output these files as well.
 
 * Open `01-Ins_Webpack-Example/dist/index.html` in your IDE and explain the following: 
 
@@ -200,7 +202,7 @@ By the end of class, students will be able to:
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ How comfortable do you feel with modularization? (Poll via Fist to Five, Slack, or Zoom)
+  * ☝️ How comfortable do you feel with Webpack and modularization? (Poll via Fist to Five, Slack, or Zoom)
 
 * Assure students that we will cover the solution to help solidify their understanding. If questions remain, remind them to use office hours to get extra help!
 
@@ -231,7 +233,7 @@ By the end of class, students will be able to:
 
    * 🔑 When we run `npx Webpack`, Webpack looks at our entry point file, or `index.js` in our `src` directory and creates a dependency graph that traces back recursively all the code and dependencies needed. 
 
-   * To include the code needed for each box, we use `import` in the `index.js` file. We will discuss `import` and `export` syntax in greater depth in another activity, but for now, it is important to know that the code for each box must be imported into our entry point file to be included in the bundle. 
+   * In the `index.js` entry point, we import the JavaScript files used for our boxes so that they are included in the bundle. 
 
      ```js
      import './box-one';
@@ -242,36 +244,54 @@ By the end of class, students will be able to:
 
 * Open `02_Stu-Modularization/Solved/dist/main.js` in your IDE and explain the following: 
 
-   * 🔑 When the `main.js` file is generated, it is stored in the `dist` directory. This file contains all the JavaScript code we need to run our app. 
+   * 🔑 When the `main.js` file is generated, it is stored in the `dist` directory. This file contains all the bundled JavaScript code. 
 
 * Open `02_Stu-Modularization/Solved/dist/index.html` in your IDE and explain the following:
 
-   * Eventually, we will use Webpack to generate all the files in our `dist` directory but for now, we have manually added our HTML and CSS file.
+   * Eventually, we will use Webpack to generate all the files in our `dist` directory but for now, we manually add our HTML and CSS file.
    
    * 🔑 To execute our JavaScript, we link this single `main.js` file to our HTML. 
 
      ```html
-    <script src="main.js"></script>
+     <script src="main.js"></script>
      ```
 
+* Open `02_Stu-Modularization/Solved/webpack.config.js` in your IDE and explain the following:
 
-  * @TODO { WE DO THIS AND THE RESULT IS THAT }
+  * 🔑 To customize and extend Webpack's functionality, we use a configuration file. 
 
+  * We use `entry` to set the entry point for Webpack. 
+
+    ```js
+    entry: './src/index.js',
     ```
-    @TODO ADD CODE SNIPPET, TABBED TWICE (4 SPACES)
+     
+  * We use `output` to set the name of our bundled file and where it will be stored. 
+
+    ```js
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
     ```
 
-  * 🔑 @TODO DON'T FORGET TO USE THE KEY EMOJI ON KEY POINTS, BUT ONLY KEY POINTS, NOT _EVERY_ POINT
+  *  We can also set the mode. While in development, we set the mode to `development` so that Webpack uses the right built-in optimizations. Other mode options include 'production' and 'none.'
+
+    ```js
+     mode: 'development'
+    ```
+
+  * We put the configuration file at the root of our application so it will be read automatically by Webpack. We must name the file `webpack.config.js` exactly for the file to be read. 
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ @TODO { DO WE END OUR REVIEWS WITH A QUESTION? }
+  * ☝️ Why is the role of the entry point in creating a bundle with Webpack? 
 
-  * 🙋 @TODO { YES, WE DO! }
+  * 🙋 The entry point determines where Webpack should look to start building the bundle and what dependencies to include. 
 
   * ☝️ What can we do if we don't completely understand this?
 
-  * 🙋 @TODO We can refer to supplemental material, read the [{ DOCS }]({ URL }), and stick around for office hours to ask for help.
+  * 🙋 We can refer to supplemental material, read the [Webpack Docs on Getting Started](https://webpack.js.org/guides/getting-started/), and stick around for office hours to ask for help.
 
 * Answer any questions before proceeding to the next activity.
 
