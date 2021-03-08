@@ -6,7 +6,7 @@ Work with a partner to resolve the following issue(s):
 
 ## Expected Behavior
 
-When I click on the `toggle boxes` button, the all the boxes should be hidden. When I click the button again, the boxes should once again be visible. 
+When I click on the `toggle boxes` button, all the boxes should be hidden. When I click the button again, the boxes should once again be visible. 
 
 ## Actual Behavior
 

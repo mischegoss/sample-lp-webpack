@@ -8,11 +8,11 @@ Today's lesson introduces students to bundling JavaScript code with Webpack as w
 
 * Encourage students to refer to the [Webpack documentation](https://webpack.js.org/concepts/), as needed, to reinforce their understanding of key concepts. 
 
-* The `01-Ins_Modularization` directory includes two demo files. The first Instructor demo is a simple front-end project using the HTML, CSS, and JavaScript structure students have used in prior projects. The second Instructor demo includes the same project optimized for use with Webpack. It may be useful to provide both of these demos to the students to help reinforce how they can convert an existing project to use Webpack.   
+* The `01-Ins_Modularization` directory includes two demo files. The first Instructor demo is a simple front-end project using the HTML, CSS, and JavaScript structure students have used in prior projects. The second Instructor demo includes the same project optimized for use with Webpack. It may be useful to provide both of these demos to the students to help reinforce how they can convert an existing project for use with Webpack.   
 
 * Since these demos use a small codebase, it may not be immediately evident how JavaScript bundling can improve an app's performance. Remind students that in the workplace, projects are much bigger and often have many contributors and encourage them to "think big" when considering the benefits of Webpack. 
 
-* Webpack is a robust tool that also be used to bundle HTML, CSS, and other assets. Stress to the students that while today's focus is on bundling JavaScript files, these additional uses -- as well as `import` and `export` syntax -- will be explored in the next lessons.
+* Webpack is a robust tool that can also be used to bundle HTML, CSS, and other assets. Stress to the students that while today's focus is on bundling JavaScript files, these additional uses -- as well as `import` and `export` syntax -- will be explored in the next lessons.
 
 * Remind students to do a `git pull` of the class repo to have today's activities ready and open in VS Code. 
 
@@ -34,7 +34,7 @@ By the end of class, students will be able to:
 
 ## Slide Deck
 
-* @TODO [Unit XX Slide Deck]()
+* [Progressive Web Apps](https://docs.google.com/presentation/d/1ZXGzgM3l9vbqqsOMBw2fI2W2HgqYjhVz16r2SwvoOg4/edit?usp=sharing)
 
 ## Class Instruction
 
@@ -42,13 +42,19 @@ By the end of class, students will be able to:
 
 * Welcome students to class.
 
-* Open the [slide deck]() and follow these prompts on their corresponding slides:
+* Open the [slide deck](https://docs.google.com/presentation/d/1ZXGzgM3l9vbqqsOMBw2fI2W2HgqYjhVz16r2SwvoOg4/edit?usp=sharing) and follow these prompts on their corresponding slides:
 
-  * **@TODO TITLE OF SLIDE**: @TODO ADD TALKING POINTS
+  * **Progressive Web Applications**: Progressive Web Applications, or PWAs, blend the benefits of a browser experience with those of a mobile application and deliver an app-like experience for all users. PWAS are responsive, progressive, connectivity-independent, engaging, and installable.
 
-  * **@TODO TITLE OF SLIDE**: @TODO ELABORATE ON SLIDE CONTENT
-  
-  * **@TODO TITLE OF SLIDE**: @TODO TRANSITION INTO MINI-PROJECT DEMO
+  * **PWAs are Responsive and Progressive**: PWAs are built with an eye toward progressive design but work for any user and on any device, even if it is older. 
+
+  * **PWAs are Connectivity-Independent**: PWAs use a service worker to allow the app to work offline or when the network is poor to keep users connected. 
+
+  * **PWAs are Engageable**: PWAs use app-like features like push notifications to let users know about new content to keep them coming back.
+
+   * **PWAs are Installable**: PWAs can be easily installed on a user’s home screen or app launcher to give them an easy way to return to the app.
+
+* To deliver an app-like experience for all users, PWAs utilize a number of optimizations to increase performance and deliver content to the user fast. During today's lessons, we will focus on one way to optimize our apps using Webpack. 
 
 * Answer any questions before proceeding to the next activity.
 
@@ -62,7 +68,7 @@ By the end of class, students will be able to:
 
 * Open `01-Ins_Modularization-Example/index.html` in your IDE and explain the following: 
 
-  * 🔑 One way to handle multiple JavaScript files is to link the individual files to our HTML. This works but it is difficult to maintain as our projects grow in scope and the number of files increase. 
+  * 🔑 One way to handle multiple JavaScript files is to link the individual files to our HTML. This works but it is difficult to maintain as our projects grow in scope and the number of files increases. 
 
     ```html
     <script src="assets/js/box-one.js"></script>
@@ -108,13 +114,13 @@ By the end of class, students will be able to:
     import './box-four';
     ```
 
- * 🔑 The single `main.js` file will then be added -- by Webpack -- into the `dist` folder. 
+ * 🔑 The single, bundled `main.js` file will then be added -- by Webpack -- into the `dist` folder. 
 
 * Open `01-Ins_Webpack-Example/dist` in your IDE and explain the following: 
 
-  * 🔑 The `dist` directory contains all the files that Webpack outputs. For now, that is the just the `main.js` file. 
+  * 🔑 The `dist` directory contains all the files that Webpack outputs. For now, that is just the `main.js` file. 
   
-  * We also  put our `index.html` and `styles.css` file manually in this directory. Later, we will use Webpack to output these files as well.
+  * We also put our `index.html` and `styles.css` files manually in this directory. Later, we will use Webpack to output these files as well.
 
 * Open `01-Ins_Webpack-Example/dist/index.html` in your IDE and explain the following: 
 
@@ -231,7 +237,7 @@ By the end of class, students will be able to:
 
 * Open `02_Stu-Modularization/Solved/src/index.js` in your IDE and explain the following: 
 
-   * 🔑 When we run `npx Webpack`, Webpack looks at our entry point file, or `index.js` in our `src` directory and creates a dependency graph that traces back recursively all the code and dependencies needed. 
+   * 🔑 When we run `npx webpack`, Webpack looks at our entry point file, or `index.js` in our `src` directory and creates a dependency graph that traces back recursively all the code and dependencies needed. 
 
    * In the `index.js` entry point, we import the JavaScript files used for our boxes so that they are included in the bundle. 
 
@@ -301,11 +307,11 @@ By the end of class, students will be able to:
 
   * 🔑 When we click on the button, the box disappears and reappears. 
 
-  * 🔑 jQuery is a widely used JavaScript library that makes functionality like this easy to implement, but to get jQuery to work with Webpack, it will take a few extra steps. 
+  * 🔑 jQuery is a widely used JavaScript library that makes functionality like hiding an element easy to implement, but to get jQuery to work with Webpack, we must take a few extra steps. 
 
 * Navigate to `03-Ins_NPM-Libraries/` in your command line and demonstrate the following:
 
-  * 🔑 To use jQuery library with Webpack, we first install it using NPM.
+  * 🔑 To use jQuery library with Webpack, we first install it using NPM. This replaces using a CDN and adding a link to our HTML page. 
 
     ```sh
     npm install jquery
@@ -315,9 +321,9 @@ By the end of class, students will be able to:
 
   * 🔑 Installing the NPM package provides the core functionality we need, but we still have a problem. Like many JavaScript libraries, jQuery uses global variables.
 
-  * To get global variables used in libraries like jQuery to work with Webpack, we must define the variables by using a plugin.
+  * To get global variables used in libraries like jQuery to work with Webpack, we must define the variables using a plugin.
 
-  * 🔑 In the config file, we first require Webpack's methods and properties. 
+  * 🔑 In our config file, we first require Webpack's methods and properties. 
 
     ```js
     const webpack = require("webpack");
@@ -367,7 +373,7 @@ By the end of class, students will be able to:
 
   ## Expected Behavior
 
-  When I click on the `toggle boxes` button, the all the boxes should be hidden. When I click the button again, all the boxes should once again be visible. 
+  When I click on the `toggle boxes` button, all the boxes should be hidden. When I click the button again, all the boxes should once again be visible. 
 
   ## Actual Behavior
 
@@ -488,7 +494,7 @@ By the end of class, students will be able to:
 
   * 🔑 When working with Webpack, we can use DevServer to enable live reloading.
 
-  * 🔑 When we change the name of the title, the page will reload and show the change.
+  * 🔑 When we change the name of the title, the page will automatically reload and show the change.
 
 * Open `05-Ins_Dev-Server/src/title.js` in your IDE and explain the following:  
 
@@ -522,7 +528,7 @@ By the end of class, students will be able to:
 
 * Open `05-Ins_Dev-Server/package.json` in your IDE and demonstrate the following:
 
-  * 🔑 Finally, in our package.json file, we add as script, so when we run `npm start` our Dev Server will fire up.
+  * 🔑 Finally, in our package.json file, we add a script, so when we run `npm start` our Dev Server will fire up.
 
     ```json
     "start": "webpack serve --open"
@@ -565,7 +571,7 @@ By the end of class, students will be able to:
 
   ## 💡 Hints
 
-  * How do I direct the Dev Server to the where to look for files? 
+  * What change do I need to make to direct the Dev Server to look in the `dist` folder to serve up the files? 
 
   ## 🏆 Bonus
 
@@ -617,7 +623,7 @@ By the end of class, students will be able to:
 
 * Open `06-Stu_Dev-Server/package.json` in your IDE and demonstrate the following:
 
-  * 🔑 We add a script to our package json so we can start up our Dev Server by simply entering `npm start`.
+  * 🔑 We add a script to our package.json so we can start up our Dev Server by simply entering `npm start`.
 
     ```json
     "start": "webpack serve --open",

@@ -18,7 +18,7 @@ Refer to the documentation:
 
 ## 💡 Hints
 
-* How do I direct the Dev Server to the where to look for files? 
+* What change do I need to make to direct the Dev Server to look in the `dist` folder to serve up the files? 
 
 ## 🏆 Bonus
 
