@@ -510,7 +510,7 @@ By the end of class, students will be able to:
      npm install --save-dev webpack-dev-server
     ```
 
-* Open `05-Ins_Dev-Server/webpack.config.js` in your browser and demonstrate the following:
+* Open `05-Ins_Dev-Server/webpack.config.js` in your IDE and demonstrate the following:
 
   * 🔑 In our config file, we use `contentBase` to let the dev server know where to look for files. 
 
@@ -520,7 +520,7 @@ By the end of class, students will be able to:
     },
     ```
 
-* Open `05-Ins_Dev-Server/package.json` in your browser and demonstrate the following:
+* Open `05-Ins_Dev-Server/package.json` in your IDE and demonstrate the following:
 
   * 🔑 Finally, in our package.json file, we add as script, so when we run `npm start` our Dev Server will fire up.
 
@@ -545,48 +545,103 @@ By the end of class, students will be able to:
 * Break your students into pairs that will work together on this activity.
 
   ```md
-  @TODO ADD ACTIVITY INSTRUCTIONS, TABBED ONCE OR TWICE (DEPENDING ON CODE SNIPPETS IN ACTIVITY INSTRUCTIONS)
+  # 📖 Implement Webpack's Dev Server for Live Reloading
+
+  Work with a partner to implement the following user story:
+
+  * As a developer, I want to see the changes made to my app without having to manually enter npm commands every time I want to compile my code. 
+
+  ## Acceptance Criteria
+
+  * It's done when I enter `npm start` to launch the development server.
+
+  * It's done when I change the color of any box and the page refreshes and shows the changes. 
+
+  ## 📝 Notes
+
+  Refer to the documentation: 
+
+  [Webpack on Development](https://webpack.js.org/guides/development/)
+
+  ## 💡 Hints
+
+  * How do I direct the Dev Server to the where to look for files? 
+
+  ## 🏆 Bonus
+
+  If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+
+  * What other development tools can I use with Webpack? Why would I choose one over the other?
+
+  Use [Google](https://www.google.com) or another search engine to research this.
+
   ```
 
 * While breaking everyone into groups, be sure to remind students and the rest of the instructional staff that questions on Slack or otherwise are welcome and will be handled. It's a good way for your team to prioritize students who need extra help.
 
-### 10. Instructor Review: { ACTIVITY NAME } (10 min) 
+### 10. Instructor Review: Dev Server (10 min) 
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ How comfortable do you feel with @TODO { TOPIC }? (Poll via Fist to Five, Slack, or Zoom)
+  * ☝️ How comfortable do you feel with using Dev Server? (Poll via Fist to Five, Slack, or Zoom)
 
 * Assure students that we will cover the solution to help solidify their understanding. If questions remain, remind them to use office hours to get extra help!
 
 * Use the prompts and talking points (🔑) below to review the following key points:
 
-  * ✔️ @TODO { THIS }
+  * ✔ `webpack-dev-server`
 
-  * ✔️ @TODO { THAT }
+  * ✔️ `contentBase: './dist'`
 
-  * ✔️ @TODO { THE OTHER }
+  * ✔️ `npm start`
 
-* Open `@TODO/folder/file` in your IDE and explain the following: 
+* Navigate to `06-Ins_Dev-Server/` in the command line to demonstrate the following: 
 
-  * @TODO { WE DO THIS AND THE RESULT IS THAT }
+  * When in development, it is important to be able to see changes to your files quickly. 
 
+  * 🔑 To use Dev Server for live reloading, we install it via NPM.
+
+    ```sh
+    npm install --save-dev webpack-dev-server
     ```
-    @TODO ADD CODE SNIPPET, TABBED TWICE (4 SPACES)
+
+* Open `06-Stu_Dev-Server/webpack.config.js` in your IDE and demonstrate the following:
+
+  * 🔑 We also have to make a change to our config file to let Dev Server know where to look for files to serve them to `localhost:8080`. We want the server to look in our `dist` directory to find our files.
+
+    ```js
+     devServer: {
+       contentBase: './dist',
+    },
     ```
 
-  * 🔑 @TODO DON'T FORGET TO USE THE KEY EMOJI ON KEY POINTS, BUT ONLY KEY POINTS, NOT _EVERY_ POINT
+* Open `06-Stu_Dev-Server/package.json` in your IDE and demonstrate the following:
+
+  * 🔑 We add a script to our package json so we can start up our Dev Server by simply entering `npm start`.
+
+    ```json
+    "start": "webpack serve --open",
+    ```
+
+* Navigate to `06-Ins_Dev-Server/` in the command line to demonstrate the following: 
+
+  * Now, we can simply run `npm install` and `npm start` and our browser will automatically load up the page.
+
+    ```sh
+    npm install
+    npm start
+    ```
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ @TODO { DO WE END OUR REVIEWS WITH A QUESTION? }
+  * ☝️ How can we test our app using Dev Server? 
 
-  * 🙋 @TODO { YES, WE DO! }
+  * 🙋 With Dev Server, we do not need to worry about spinning up a server. Instead, Dev Server serves up the files in our `dist` folder to `localhost:8080` so we can easily, and quickly test our app. 
 
   * ☝️ What can we do if we don't completely understand this?
 
-  * 🙋 @TODO We can refer to supplemental material, read the [{ DOCS }]({ URL }), and stick around for office hours to ask for help.
+  * 🙋 We can refer to supplemental material, read the [Webpack Docs on Development](https://webpack.js.org/guides/development/), and stick around for office hours to ask for help.
 
 * Answer any questions before proceeding to the next activity.
-
 
 ### 11. END (0 min)
