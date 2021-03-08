@@ -1,8 +1,8 @@
-# 🐛 JQuery `$` Variable Not Defined  
+# 🐛 jQuery's Global Variable Not Defined  
 
 Work with a partner to resolve the following issue(s):
 
-* As a user, I want to be able to click on the button to toggle the boxes on and off. 
+* As a user, I want to be able to click on the button to make the boxes appear and disappear. 
 
 ## Expected Behavior
 
@@ -10,21 +10,21 @@ When I click on the `toggle boxes` button, the all the boxes should be hidden. W
 
 ## Actual Behavior
 
-When I click on the button, the boxes do not toggle. 
+When I click on the button, the boxes do not toggle and remain visible. 
 
 ## Steps to Reproduce the Problem
 
-1. Navigate to the `Unsolved` folder in the browser in the command line and run `npx webpack`. 
+1. Navigate to the `Unsolved` folder in the browser in the command line and run `npm installl` and `npx webpack`. 
 
 2. Open `Unsolved/dist/index.html` in the browser. 
 
-3. Click on the `toggle boxes` button. The boxes do not disappear. 
+3. Click on the `toggle boxes` button. The boxes remain visible.. 
 
 4. Open the console. An error message reads `Uncaught ReferenceError: $ is not defined`.
 
 ## 💡 Hints
 
-How can you configure Webpack to use global variables used in libraries like JQuery? 
+How can you configure Webpack to use global variables used in libraries like jQuery? 
 
 ## 🏆 Bonus
 

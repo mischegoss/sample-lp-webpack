@@ -295,75 +295,188 @@ By the end of class, students will be able to:
 
 * Answer any questions before proceeding to the next activity.
 
-### 5. Instructor Demo: { ACTIVITY NAME } (5 min) 
+### 5. Instructor Demo: NPM Libraries (5 min) 
 
-@TODO USE THE FOLLOWING FOR BROWSER AND/OR COMMAND LINE DEMOS, RESPECTIVELY. REMOVE IF UNUSED
+* Open `03-Ins_NPM-Libraries/dist/index.html` in your browser and demonstrate the following:
 
-* Open `@TODO/folder/file` in your browser and demonstrate the following:
+  * 🔑 When we click on the button, the box disappears and reappears. 
 
-* Run `@TODO/folder/file { AND ARGS, IF ANY }` from the command line and demonstrate the following: 
+  * 🔑 jQuery is a widely used JavaScript library that makes functionality like this easy to implement, but to get jQuery to work with Webpack, it will take a few extra steps. 
 
-  * 🔑 @TODO { WHEN WE DO THIS, IT DOES THAT. }
+* Navigate to `03-Ins_NPM-Libraries/` in your command line and demonstrate the following:
 
-  * 🔑 @TODO { WE ALSO SEE THESE THINGS. }
+  * 🔑 To use jQuery library with Webpack, we first install it using NPM.
+
+    ```sh
+    npm install jquery
+    ```
+
+* Open `03-Ins_NPM-Libraries/webpack.config.js` in your browser and demonstrate the following: 
+
+  * 🔑 Installing the NPM package provides the core functionality we need, but we still have a problem. Like many JavaScript libraries, jQuery uses global variables.
+
+  * To get global variables used in libraries like jQuery to work with Webpack, we must define the variables by using a plugin.
+
+  * 🔑 In the config file, we first require Webpack's methods and properties. 
+
+    ```js
+    const webpack = require("webpack");
+    ```
+
+   * 🔑 Then we use the `ProvidePlugin` method to define the `$` variable and automatically load jQuery for use in our project. 
+
+    ```js
+     plugins:[
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+      }),
+    ],
+    ```
+
+* Navigate to `03-Ins_NPM-Libraries/` in your command line and enter `npm install` and `npx webpack` to demonstrate the following:
+
+  * 🔑 When we run `npx webpack`, the bundled file now includes our JQuery in the generated code. 
+
+    ```sh
+    ./node_modules/jquery/dist/jquery.js 282 KiB [built] [code generated]
+    ```
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ How would we build this?
+  * ☝️ How do we add jQuery to our project that uses Webpack? 
 
-  * 🙋 @TODO { YES, HOW? }
+  * 🙋 We use the jQuery npm package. To define the global variables and automatically load jQuery, we use Webpack's `ProvidePlugin` method.  
 
 * Answer any questions before proceeding to the next activity.
 
-* In preparation for the activity, ask TAs to start directing students to the activity instructions found in `@TODO/folder/file`.
+* In preparation for the activity, ask TAs to start directing students to the activity instructions found in `04-Stu_NPM-Libraries/README.md`
 
-### 6. Student Do: { ACTIVITY NAME } (15 min) 
+### 6. Student Do: NPM Libraries (15 min) 
 
-* Direct students to the activity instructions found in `@TODO/folder/file`.
+* Direct students to the activity instructions found in `04-Stu_NPM-Libraries/README.md`.
 
 * Break your students into pairs that will work together on this activity.
 
   ```md
-  @TODO ADD ACTIVITY INSTRUCTIONS, TABBED ONCE OR TWICE (DEPENDING ON CODE SNIPPETS IN ACTIVITY INSTRUCTIONS)
+  # 🐛 jQuery's Global Variable Not Defined  
+
+  Work with a partner to resolve the following issue(s):
+
+  * As a user, I want to be able to click on the button to make the boxes appear and disappear. 
+
+  ## Expected Behavior
+
+  When I click on the `toggle boxes` button, the all the boxes should be hidden. When I click the button again, all the boxes should once again be visible. 
+
+  ## Actual Behavior
+
+  When I click on the button, the boxes remain visible.
+
+  ## Steps to Reproduce the Problem
+
+  1. Navigate to the `Unsolved` folder in the browser in the command line and run `npm install` and `npx webpack`. 
+
+  2. Open `Unsolved/dist/index.html` in the browser. 
+
+  3. Click on the `toggle boxes` button. The boxes remain visible. 
+
+  4. Open the console. An error message reads `Uncaught ReferenceError: $ is not defined`.
+
+  ## 💡 Hints
+
+  How can you configure Webpack to use global variables used in libraries like jQuery? 
+
+  ## 🏆 Bonus
+
+  If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+
+   * How would you add Bootstrap or other libraries to your Webpack project? 
+
+  Use [Google](https://www.google.com) or another search engine to research this.
+
+  ---
+  
   ```
 
 * While breaking everyone into groups, be sure to remind students and the rest of the instructional staff that questions on Slack or otherwise are welcome and will be handled. It's a good way for your team to prioritize students who need extra help.
 
-### 7. Instructor Review: { ACTIVITY NAME } (10 min) 
+### 7. Instructor Review: NPM Libraries (10 min) 
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ How comfortable do you feel with @TODO { TOPIC }? (Poll via Fist to Five, Slack, or Zoom)
+  * ☝️ How comfortable do you feel with client-side NPM libraries? (Poll via Fist to Five, Slack, or Zoom)
 
 * Assure students that we will cover the solution to help solidify their understanding. If questions remain, remind them to use office hours to get extra help!
 
 * Use the prompts and talking points (🔑) below to review the following key points:
 
-  * ✔️ @TODO { THIS }
+  * ✔️ jQuery `$` variable
 
-  * ✔️ @TODO { THAT }
+  * ✔️ `npm install jquery`
 
-  * ✔️ @TODO { THE OTHER }
+  * ✔️ `ProvidePlugin`
 
-* Open `@TODO/folder/file` in your IDE and explain the following: 
+* Open `04-Stu_NPM-Libraries/Solved/src/index.js` in your IDE and explain the following: 
 
-  * @TODO { WE DO THIS AND THE RESULT IS THAT }
+  *  We use jQuery to toggle our boxes on our page. However, it looks like our jQuery code is not working. 
 
+    ```js
+    $(document).ready(function(){
+      $("button").click(function(){
+      $(".item").toggle();
+     });
+    });
     ```
-    @TODO ADD CODE SNIPPET, TABBED TWICE (4 SPACES)
-    ```
 
-  * 🔑 @TODO DON'T FORGET TO USE THE KEY EMOJI ON KEY POINTS, BUT ONLY KEY POINTS, NOT _EVERY_ POINT
+* Open `04-Stu_NPM-Libraries/Solved/package.json` in your IDE and explain the following: 
+
+  * To use the jQuery library, we first install it using NPM using `npm install jquery` to create it as a dependency. 
+
+  ```json
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+  ```
+
+* Open `04-Stu_NPM-Libraries/Solved/webpack.config.js` in your IDE and explain the following: 
+
+  * 🔑 Since Webpack does not automatically have a way of understanding jQuery's global variable, we must also instruct Webpack to identify the variable. 
+
+  * 🔑 In Webpack's configuration file, we add an array to hold the plugins.
+
+    ```js
+    plugins: []
+    ```
+  
+  * 🔑 Next, we use Webpack's built-in `ProvidePlugin` method to define jQuery's global variables and automatically load jQuery.
+
+    ```js
+     plugins:[
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+      }),
+    ],
+    
+    ```
+  * 
+
+* Open `04-Stu_NPM-Libraries/Solved/dist/index.html` in your browser to demonstrate the following:
+
+  * 🔑 When we click on the button, the boxes now toggle. 
+
+  * 🔑 When we navigate to the console, the error is gone. 
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ @TODO { DO WE END OUR REVIEWS WITH A QUESTION? }
+  * ☝️ When we use a JavaScript library with a global variable like jQuery, what must we do to make it work?
 
-  * 🙋 @TODO { YES, WE DO! }
+  * 🙋 Webpack does not automatically recognize global variables used in JavaScript libraries. So we use Webpack's `ProvidePlugin` method to define the variables and automatically load it.  
 
   * ☝️ What can we do if we don't completely understand this?
 
-  * 🙋 @TODO We can refer to supplemental material, read the [{ DOCS }]({ URL }), and stick around for office hours to ask for help.
+  * 🙋 We can refer to supplemental material, read the [Webpack Docs on ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/), and stick around for office hours to ask for help.
 
 * Answer any questions before proceeding to the next activity.
 
