@@ -281,7 +281,7 @@ By the end of class, students will be able to:
     },
     ```
 
-  *  We can also set the mode. While in development, we set the mode to `development` so that Webpack uses the right built-in optimizations. Other mode options include 'production' and 'none.'
+  * We can also set the mode. While in development, we set the mode to `development` so that Webpack uses the right built-in optimizations. Other mode options include 'production' and 'none.'
 
     ```js
      mode: 'development'
@@ -331,14 +331,14 @@ By the end of class, students will be able to:
 
    * 🔑 Then we use the `ProvidePlugin` method to define the `$` variable and automatically load jQuery for use in our project. 
 
-    ```js
-     plugins:[
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery"
-      }),
-    ],
-    ```
+     ```js
+       plugins:[
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+        }),
+      ],
+      ```
 
 * Navigate to `03-Ins_NPM-Libraries/` in your command line and enter `npm install` and `npx webpack` to demonstrate the following:
 
