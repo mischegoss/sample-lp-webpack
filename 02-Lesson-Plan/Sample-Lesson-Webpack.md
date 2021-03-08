@@ -427,23 +427,23 @@ By the end of class, students will be able to:
 
   *  We use jQuery to toggle our boxes on our page. However, it looks like our jQuery code is not working. 
 
-    ```js
-    $(document).ready(function(){
-      $("button").click(function(){
-      $(".item").toggle();
-     });
-    });
-    ```
+      ```js
+      $(document).ready(function(){
+        $("button").click(function(){
+        $(".item").toggle();
+       });
+      });
+      ```
 
 * Open `04-Stu_NPM-Libraries/Solved/package.json` in your IDE and explain the following: 
 
   * To use the jQuery library, we first install it using NPM using `npm install jquery` to create it as a dependency. 
 
-  ```json
-  "dependencies": {
-    "jquery": "^3.6.0"
-  }
-  ```
+    ```json
+    "dependencies": {
+      "jquery": "^3.6.0"
+    }
+    ```
 
 * Open `04-Stu_NPM-Libraries/Solved/webpack.config.js` in your IDE and explain the following: 
 
