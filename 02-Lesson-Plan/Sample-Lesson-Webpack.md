@@ -10,7 +10,7 @@ Today's lesson introduces students to bundling JavaScript code with Webpack as w
 
 * The `01-Ins_Modularization` directory includes two demo files. The first Instructor demo is a simple front-end project using the HTML, CSS, and JavaScript structure students have used in prior projects. The second Instructor demo includes the same project optimized for use with Webpack. It may be useful to provide both of these demos to the students to help reinforce how they can convert an existing project to use Webpack.   
 
-* Since these demos use a small codebase, it may not be immediately evident how JavaScript bundling can improve an app's performance. Remind students that in the workplace, projects are much bigger and often have many contributors and encourage them to `think big` when considering the benefits of Webpack. 
+* Since these demos use a small codebase, it may not be immediately evident how JavaScript bundling can improve an app's performance. Remind students that in the workplace, projects are much bigger and often have many contributors and encourage them to "think big" when considering the benefits of Webpack. 
 
 * Webpack is a robust tool that also be used to bundle HTML, CSS, and other assets. Stress to the students that while today's focus is on bundling JavaScript files, these additional uses -- as well as `import` and `export` syntax -- will be explored in the next lessons.
 
@@ -56,13 +56,13 @@ By the end of class, students will be able to:
 
 * Open `01-Ins_Modularization-Example/index.html` in your browser and demonstrate the following:
 
-  * 🔑 Instead of using one large JavaScript file, we can use a different JavaScript file to handle the functionality for each box on the page. 
+  * 🔑 Instead of using one large JavaScript file, we can use different JavaScript files to handle the functionality for each box. 
 
   * 🔑 This modularization allows us to break down our JavaScript into small, more manageable chunks of code that perform a specific role.
 
 * Open `01-Ins_Modularization-Example/index.html` in your IDE and explain the following: 
 
-  * 🔑 To use multiple JavaScript files, we can link each individual file to our HTML. This works but it is difficult to maintain as our projects grow in scope. 
+  * 🔑 One way to handle multiple JavaScript files is to link individual files to our HTML. This works but it is difficult to maintain as our projects grow in scope. 
 
     ```html
     <script src="assets/js/box-one.js"></script>
@@ -73,7 +73,7 @@ By the end of class, students will be able to:
   
 * Open `01-Ins_Webpack-Example/` from the command line and demonstrate the following: 
 
-  * 🔑 To write cleaner, faster code, we can use Webpack to bundle our JavaScript modules.   
+  * 🔑 To write cleaner and faster code, we can use Webpack to bundle our JavaScript modules.   
 
   * 🔑 To use Webpack, we first need to initialize npm and create a `package.json` file. To do that, we use `npm init -y`.
 
@@ -81,7 +81,7 @@ By the end of class, students will be able to:
     npm init -y
     ```
 
-  * 🔑 Next, we install Webpack locally as well as the command line tools. Since we want to use Webpack during development only, we use `--save-dev`.
+  * 🔑 Next, we install Webpack locally as well as Webpack's command line tools. Since we want to use Webpack during development only, we use `--save-dev`.
 
     ```sh
     npm install webpack webpack-cli --save-dev
@@ -97,7 +97,7 @@ By the end of class, students will be able to:
 
   * 🔑 We also have a new file in our `src`, an `index.js`. This JavaScript file will serve as Webpack's entry point. 
 
-  * 🔑 When we run Webpack, it will check everything that has been imported or required in the `index.js` entry point and then bundle it all together into a new file called `main.js`. 
+  * 🔑 When we run Webpack, it will check everything that has been imported or required in the `index.js` entry point and then bundle it all together into a new file called `main.js`. In our `index.js` we have imported the files holding the code for each box. 
 
     ```js
     import './box-one';
@@ -112,11 +112,11 @@ By the end of class, students will be able to:
 
   * 🔑 The `dist` directory contains all the files Webpack outputs. For mow, that is the `main.js` file. 
   
-  * Since we are only generating a JavaScript bundle for now, we also  put our `index.html` and `styles.css` file manually in this directory. Later, we will use Webpack to output all these files.
+  * We also  put our `index.html` and `styles.css` file manually in this directory. Later, we will use Webpack to output all these files as well.
 
 * Open `01-Ins_Webpack-Example/dist/index.html` in your IDE and explain the following: 
 
-  * 🔑 Now that we used Webpack to bundle our JavaScript files into a single `main.js` file, we no longer need links to multiple JavaScript files. Instead, we can simply link to the newly generated `main.js` file. 
+  * 🔑 Now that we used Webpack to bundle our JavaScript files into a single `main.js` file, we no longer need links to multiple JavaScript files in our HTML. Instead, we can simply link to the newly generated `main.js` file. 
 
     ```html
     <script src="main.js"></script>
@@ -124,7 +124,7 @@ By the end of class, students will be able to:
 
 * Open `01-Ins_Webpack-Example/webpack.config.js` in your IDE and explain the following: 
 
-  * 🔑 This is all we need for Webpack to bundle our files for a simple project. However, for more complex projects, it is important to use a configuration file explicitly state the entry point and output expected. 
+  * 🔑 This is all we need for Webpack to bundle our files for a simple project. However, for more complex projects, it is important to use a configuration file to explicitly state the entry point and output expected and allow other custom configurations.  
 
     ```js
     const path = require('path');
@@ -147,7 +147,7 @@ By the end of class, students will be able to:
 
   * ☝️ What does Webpack do with these modules? 
 
-  * 🙋 Webpack bundles all the modules needed for their project to run -- and their dependencies -- into a single JavaScript file. 
+  * 🙋 Webpack bundles all the modules needed for their project to run -- and their dependencies -- into a single JavaScript file.
 
 * Answer any questions before proceeding to the next activity.
 
@@ -206,6 +206,8 @@ By the end of class, students will be able to:
 
 * Use the prompts and talking points (🔑) below to review the following key points:
 
+  * ✔️ `npx webpack`
+
   * ✔️ `/src`
 
   * ✔️ `index.js` entry point
@@ -216,7 +218,42 @@ By the end of class, students will be able to:
 
   * ✔️ `webpack.config.js`
 
-* Open `@TODO/folder/file` in your IDE and explain the following: 
+* Navigate to `02-Stu_Modularization/Unsolved` in the command line and enter `npm install` and `npx Webpack`.
+
+  * 🔑 To get our project up and running, we first have to generate a bundled `main.js` file. To do so, we run `npm install` and `npx Webpack`.
+
+    ```sh
+    npm install
+    npm webpack
+    ```
+
+* Open `02_Stu-Modularization/Solved/src/index.js` in your IDE and explain the following: 
+
+   * 🔑 When we run `npx Webpack`, Webpack looks at our entry point file, or `index.js` in our `src` directory and creates a dependency graph that traces back recursively all the code and dependencies needed. 
+
+   * To include the code needed for each box, we use `import` in the `index.js` file. We will discuss `import` and `export` syntax in greater depth in another activity, but for now, it is important to know that the code for each box must be imported into our entry point file to be included in the bundle. 
+
+     ```js
+     import './box-one';
+     import './box-two';
+     import './box-three';
+     import './box-four';
+     ```
+
+* Open `02_Stu-Modularization/Solved/dist/main.js` in your IDE and explain the following: 
+
+   * 🔑 When the `main.js` file is generated, it is stored in the `dist` directory. This file contains all the JavaScript code we need to run our app. 
+
+* Open `02_Stu-Modularization/Solved/dist/index.html` in your IDE and explain the following:
+
+   * Eventually, we will use Webpack to generate all the files in our `dist` directory but for now, we have manually added our HTML and CSS file.
+   
+   * 🔑 To execute our JavaScript, we link this single `main.js` file to our HTML. 
+
+     ```html
+    <script src="main.js"></script>
+     ```
+
 
   * @TODO { WE DO THIS AND THE RESULT IS THAT }
 
