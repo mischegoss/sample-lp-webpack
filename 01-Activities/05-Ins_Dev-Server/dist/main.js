@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tit
   \**********************/
 /***/ (() => {
 
-eval("const title = document.getElementById(\"title\");\nconst message = \"Hello Dev Server\";\n\ntitle.textContent = message;\n\n//# sourceURL=webpack://Webpack_Example/./src/title.js?");
+eval("const title = document.getElementById(\"title\");\nconst message = \"Hello Class\";\n\ntitle.textContent = message;\n\n//# sourceURL=webpack://Webpack_Example/./src/title.js?");
 
 /***/ })
 

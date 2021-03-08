@@ -480,31 +480,67 @@ By the end of class, students will be able to:
 
 * Answer any questions before proceeding to the next activity.
 
-### 8. Instructor Demo: { ACTIVITY NAME } (5 min) 
+### 8. Instructor Demo: DevServer (5 min) 
 
-@TODO USE THE FOLLOWING FOR BROWSER AND/OR COMMAND LINE DEMOS, RESPECTIVELY. REMOVE IF UNUSED
+* Navigate to `05-Ins_Dev-Server/` in the command line and enter `npm start`.
 
-* Open `@TODO/folder/file` in your browser and demonstrate the following:
+* Open `http://localhost:8080/` in your browser and demonstrate the following:
 
-* Run `@TODO/folder/file { AND ARGS, IF ANY }` from the command line and demonstrate the following: 
+  * 🔑 When working with Webpack, we can use DevServer to enable live reloading.
 
-  * 🔑 @TODO { WHEN WE DO THIS, IT DOES THAT. }
+  * 🔑 When we change the name of the title, the page will reload and show the change.
 
-  * 🔑 @TODO { WE ALSO SEE THESE THINGS. }
+* Open `05-Ins_Dev-Server/src/title.js` in your IDE and explain the following:  
+
+  * To change the title, we change the value of the `message` variable. This change triggers the Dev Server to rebuild the bundle to include the changes.  
+
+    ```js
+    const message = "Hello World!";
+    ```
+
+* Open `http://localhost:8080/` in your browser and demonstrate the following:
+
+  * 🔑 When we reopen the page, the title has changed. 
+
+* Navigate to `05-Ins_Dev-Server/` in the command line to demonstrate the following:
+
+  * 🔑 To use DevServer, we install it as a development dependency.
+
+    ```sh
+     npm install --save-dev webpack-dev-server
+    ```
+
+* Open `05-Ins_Dev-Server/webpack.config.js` in your browser and demonstrate the following:
+
+  * 🔑 In our config file, we use `contentBase` to let the dev server know where to look for files. 
+
+    ```js
+    devServer: {
+      contentBase: './dist',
+    },
+    ```
+
+* Open `05-Ins_Dev-Server/package.json` in your browser and demonstrate the following:
+
+  * 🔑 Finally, in our package.json file, we add as script, so when we run `npm start` our Dev Server will fire up.
+
+    ```json
+    "start": "webpack serve --open"
+    ```
 
 * Ask the class the following questions (☝️) and call on students for the answers (🙋):
 
-  * ☝️ How would we build this?
+  * ☝️ What is the advantage of using Webpack's Dev Server?
 
-  * 🙋 @TODO { YES, HOW? } 
+  * 🙋 Dev Server watches for changes in our files and automatically recompiles the changed module. 
 
 * Answer any questions before proceeding to the next activity.
 
-* In preparation for the activity, ask TAs to start directing students to the activity instructions found in `@TODO/folder/file`.
+* In preparation for the activity, ask TAs to start directing students to the activity instructions found in `06-Stu_Dev-Server/README.md`.
 
-### 9. Student Do: { ACTIVITY NAME } (15 min) 
+### 9. Student Do: Dev Server (15 min) 
 
-* Direct students to the activity instructions found in `@TODO/folder/file`.
+* Direct students to the activity instructions found in `06-Stu_Dev-Server/README.md`.
 
 * Break your students into pairs that will work together on this activity.
 
