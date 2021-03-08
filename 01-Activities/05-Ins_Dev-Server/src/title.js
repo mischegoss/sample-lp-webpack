@@ -1,4 +1,4 @@
 const title = document.getElementById("title");
-const message = "Hello Dev Server";
+const message = "Hello Class";
 
 title.textContent = message;

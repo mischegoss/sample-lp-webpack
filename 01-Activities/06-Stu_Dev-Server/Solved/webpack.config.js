@@ -1,5 +1,4 @@
 const path = require('path');
-var webpack = require("webpack")
 
 module.exports = {
   entry: './src/index.js',
@@ -10,11 +9,5 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
-  plugins:[
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    }),
-  ],
   mode: 'development'
 };
